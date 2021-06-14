@@ -1,4 +1,5 @@
-# dockersshd
+# Docker container using ubuntu-latest and running SSHD
+
 Batch files and Dockerfile to create a container that will run sshd
 from Ubuntu and grab the host user's default ssh public key.
 
