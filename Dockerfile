@@ -28,9 +28,11 @@ RUN mkdir -p /home/${user_name}/.ssh
 RUN chown ${user_name}.${user_name} /home/${user_name}/.ssh
 COPY sshconfig /home/${user_name}/.ssh/config
 COPY id_rsa.pub /home/${user_name}/.ssh/authorized_keys
+COPY id_rsa.pub /home/${user_name}/.ssh/id_rsa.pub
 COPY id_rsa /home/${user_name}/.ssh/id_rsa
 RUN chmod 0644 /home/${user_name}/.ssh/authorized_keys
-RUN chmod 0444 /home/${user_name}/.ssh/id_rsa
+RUN chmod 0400 /home/${user_name}/.ssh/id_rsa.pub
+RUN chmod 0400 /home/${user_name}/.ssh/id_rsa
 
 # Going to run some commands in user space
 USER ${user_name}
