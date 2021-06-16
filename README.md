@@ -23,6 +23,13 @@ https://docs.docker.com/engine/reference/run/ for reference.
 ## Prerequisites
 
 - Windows, Mac or Linux host
+- [Docker](https://www.docker.com/products/docker-desktop)
+  - Docker is container-based virtualization. It is NOT a virtual machine and does not
+    impose the 30%+ overhead that VMs typically impose. If you are running it on
+    Windows, WSL2 (Windows Subsystem for Linux) includes a full Linux kernel running
+    in kernel space on Windows. The container runs natively like any other application,
+    except it has complete isolation and its resources are assigned to it by the host
+    operating system.
 - `id_rsa.pub` exists at `HOME/.ssh/id_rsa.pub`
 - `id_rsa` is what you use to access git repos and exists at `HOME/.ssh/id_rsa`
 
