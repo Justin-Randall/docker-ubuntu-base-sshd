@@ -18,7 +18,7 @@ docker run --detach --publish 22:22/tcp -it --name openssh-dev-base-container --
 
 specifically the `--publish 22:22/tcp` argument where the format is
 `hostport:containerport`. See
-https://docs.docker.com/engine/reference/run/ for reference.
+[Docker run reference](https://docs.docker.com/engine/reference/run/) for details.
 
 ## Prerequisites
 
@@ -31,13 +31,15 @@ https://docs.docker.com/engine/reference/run/ for reference.
     in kernel space on Windows. The container runs natively like any other application,
     except it has complete isolation and its resources are assigned to it by the host
     operating system.
-- An ssh client (comes with the git install on Windows, also should be included with 
+- An ssh client (comes with the git install on Windows, also should be included with
   recent builds of Windows 10)
   - `id_rsa.pub` exists at `HOME/.ssh/id_rsa.pub`
   - `id_rsa` is what you use to access git repos and exists at `HOME/.ssh/id_rsa`
+
     - ```shell
-      $ ssh-keygen
+      ssh-keygen
       ```
+
       This should generate default a id_rsa and id_rsa.pub keypair. If you do not
       provide a password, then you can use ssh without having to enter a password
       on the remote host.
@@ -49,18 +51,20 @@ https://docs.docker.com/engine/reference/run/ for reference.
 - A shell script to initialize your dev environment located at `HOME/init-container.sh`
 - A .gitconfig file at `HOME/.gitconfig`
 
+## Installation
+
+If you are reading this on Github, click on the big green button that says `Code`. In the drop down, select `Clone` and copy the text that is shown. Use that to clone the repo.
+
 ## Usage
 
 ```shell
-git clone git@github.com:Justin-Randall/docker-ubuntu-base-sshd.git
 ./build.sh
 ./run.sh
 
 ssh 127.0.0.1
 ```
 
-When you want to tear down the container (note, this will destroy all
-running containers):
+When you want to tear down the container (note, this will also erase the contents of the container):
 
 ```shell
 ./kill.sh
