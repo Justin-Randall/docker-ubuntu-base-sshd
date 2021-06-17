@@ -50,7 +50,7 @@ function copyToContainer() {
 }
 
 function execInContainer() {
-    docker exec -it openssh-dev-base-container sh -c "$1" || bail "Failed to execute: $1"    
+    docker exec openssh-dev-base-container sh -c "$1" || bail "Failed to execute: $1"    
 }
 
 # Add dev user
@@ -79,7 +79,7 @@ execInContainer "chmod 0400 /home/${USERNAME}/.ssh/id_rsa"
 # docker cp init-container.sh openssh-dev-base-container:/home/${USERNAME}/init-container.sh || bail "Could not copy init-container.sh to /home/${USERNAME}/init-container.sh"
 echo "install and run init-container.sh in the container, as ${USERNAME} in /home/${USERNAME}"
 copyToContainer init-container.sh "/home/${USERNAME}/init-container.sh"
-docker exec -u ${USERNAME} -it openssh-dev-base-container sh -c "cd ~ && ~/init-container.sh"
+docker exec -u ${USERNAME} openssh-dev-base-container sh -c "cd ~ && ~/init-container.sh"
 
 # clean up the local files
 rm -f ./id_rsa*

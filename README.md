@@ -28,6 +28,7 @@ https://docs.docker.com/engine/reference/run/ for reference.
 
 ## Optional
 
+- [ConEmu](https://conemu.github.io/) an excellent console emulator with tabs that handls SSH well
 - ~/.ssh/sshconfig
 - A shell script to initialize your dev environment located at `HOME/init-container.sh`
 - A .gitconfig file at `HOME/.gitconfig`
