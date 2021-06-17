@@ -23,8 +23,24 @@ https://docs.docker.com/engine/reference/run/ for reference.
 ## Prerequisites
 
 - Windows, Mac or Linux host
-- `id_rsa.pub` exists at `HOME/.ssh/id_rsa.pub`
-- `id_rsa` is what you use to access git repos and exists at `HOME/.ssh/id_rsa`
+  - If you are on Windows, you should be using bash or [git-bash](https://git-scm.com/downloads) to execute the included scripts.
+- [Docker](https://www.docker.com/products/docker-desktop)
+  - Docker is container-based virtualization. It is NOT a virtual machine and does not
+    impose the 30%+ overhead that VMs typically impose. If you are running it on
+    Windows, WSL2 (Windows Subsystem for Linux) includes a full Linux kernel running
+    in kernel space on Windows. The container runs natively like any other application,
+    except it has complete isolation and its resources are assigned to it by the host
+    operating system.
+- An ssh client (comes with the git install on Windows, also should be included with 
+  recent builds of Windows 10)
+  - `id_rsa.pub` exists at `HOME/.ssh/id_rsa.pub`
+  - `id_rsa` is what you use to access git repos and exists at `HOME/.ssh/id_rsa`
+    - ```shell
+      $ ssh-keygen
+      ```
+      This should generate default a id_rsa and id_rsa.pub keypair. If you do not
+      provide a password, then you can use ssh without having to enter a password
+      on the remote host.
 
 ## Optional
 
