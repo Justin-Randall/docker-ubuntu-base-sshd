@@ -70,7 +70,8 @@ When you want to tear down the container (note, this will also erase the content
 ./kill.sh
 ```
 
-# Visual Studio Code setup
+## Visual Studio Code setup
+
 Since the Dockerfile and scripts have done all of the work for you,
 navigate over to
 [Visual Studio Code's guide to setting up Remote-SSH](https://code.visualstudio.com/docs/remote/ssh#_connect-to-a-remote-host )
