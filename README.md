@@ -9,17 +9,6 @@ This is intended to be a very lightweight way to create a clean linux
 dev environment for use with something like Visual Studio Code
 Remote-SSH.
 
-Note, if your dev system is also running an SSH server, the run script
-will need to alter the port publication parameters.
-
-```shell
-docker run --detach --publish 22:22/tcp -it --name openssh-dev-base-container --security-opt seccomp=unconfined openssh-dev-base
-```
-
-specifically the `--publish 22:22/tcp` argument where the format is
-`hostport:containerport`. See
-[Docker run reference](https://docs.docker.com/engine/reference/run/) for details.
-
 ## Prerequisites
 
 - Windows, Mac or Linux host
