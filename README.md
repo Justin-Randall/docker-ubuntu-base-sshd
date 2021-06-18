@@ -70,6 +70,33 @@ When you want to tear down the container (note, this will also erase the content
 ./kill.sh
 ```
 
+### Options
+
+The shell scripts honor some environment variables to override default
+behavior.
+
+```shell
+export USERNAME=bart
+export DOCKER_SSH_FORWARD_PORT=2222
+```
+
+Setting these two environment variables before executing
+
+```shell
+./run.sh
+```
+
+will tell the new container to create a user named `bart` that will use
+your ssh credentials, and for the host to bind TCP port 2222 and forward
+it to port 22 on the container (ssh). This is useful if an ssh server is
+already listening on the docker host.
+
+To connect to the container:
+
+```shell
+ssh -p 2222 bart@127.0.0.1
+```
+
 ## Visual Studio Code setup
 
 Since the Dockerfile and scripts have done all of the work for you,

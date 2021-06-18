@@ -7,6 +7,10 @@
 # 3. Add your user account to /etc/sudoers with NOWPASSWD
 # 4. Run a custom init-cointainer.sh if one is found in 
 #    the user's home directory on the host running the container.
+if [ -z "$USERNAME"]
+then
+    USERNAME=`whoami`
+fi
 
 echo "Performing first time setup for ${USERNAME}"
 echo "This script can only be executed ONCE against a newly created and running container."
@@ -79,6 +83,7 @@ execInContainer "chmod 0400 /home/${USERNAME}/.ssh/id_rsa"
 # docker cp init-container.sh openssh-dev-base-container:/home/${USERNAME}/init-container.sh || bail "Could not copy init-container.sh to /home/${USERNAME}/init-container.sh"
 echo "install and run init-container.sh in the container, as ${USERNAME} in /home/${USERNAME}"
 copyToContainer init-container.sh "/home/${USERNAME}/init-container.sh"
+execInContainer "chmod +x /home/${USERNAME}/init-container.sh"
 docker exec -u ${USERNAME} openssh-dev-base-container sh -c "cd ~ && ~/init-container.sh"
 
 # clean up the local files
