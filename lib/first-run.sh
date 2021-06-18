@@ -7,7 +7,7 @@
 # 3. Add your user account to /etc/sudoers with NOWPASSWD
 # 4. Run a custom init-cointainer.sh if one is found in 
 #    the user's home directory on the host running the container.
-if [ -z "$USERNAME"]
+if [ -z "$USERNAME" ]
 then
     USERNAME=`whoami`
 fi

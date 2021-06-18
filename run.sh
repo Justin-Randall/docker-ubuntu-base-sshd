@@ -1,6 +1,6 @@
 #!/usr/bin/bash
  
-if [ -z "$USERNAME"]
+if [ -z "$USERNAME" ]
 then
     USERNAME=`whoami`
 fi
